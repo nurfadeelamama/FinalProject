@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-import { SubjectServiceProvider } from '../../providers/subjectservice/subjectservice';
+import { SubjectServiceProvider } from  '../../providers/subjectservice/subjectservice';
 import { Subject } from '../../models/subjects';
 import { Subscription } from 'rxjs/Subscription';
 
@@ -15,7 +15,7 @@ import { Subscription } from 'rxjs/Subscription';
 })
 export class GradePage {
   subjects: Subject[];
-  subs: Subscription
+  subs: Subscription;
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
@@ -29,8 +29,12 @@ private getSubject(){
   );
 }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad GradePage');
-  }
+ionViewWillEnter(){
+  this.getSubject();
+}
+
+ionViewWillLeave(){
+  this.subs.unsubscribe();
+}
 
 }

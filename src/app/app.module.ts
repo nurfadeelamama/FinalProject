@@ -13,9 +13,9 @@ import { AboutPage } from '../pages/about/about';
 import { YoutubePage } from '../pages/youtube/youtube';
 import { NewsPage } from '../pages/news/news';
 import { NewsServiceProvider } from '../providers/news-service/news-service';
+import { HttpClientModule } from '@angular/common/http';
 import { SubjectServiceProvider } from '../providers/subjectservice/subjectservice';
 import { GradePage } from '../pages/grade/grade';
-
 
 @NgModule({
   declarations: [
@@ -29,6 +29,7 @@ import { GradePage } from '../pages/grade/grade';
     GradePage
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     IonicModule.forRoot(MyApp),
   ],
